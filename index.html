@@ -468,7 +468,7 @@
             <div class="env-flap"></div>
         </div>
     </div>
-    <div style="margin-top: 30px; font-size: 0.8rem; color: #c28b6e; text-align: center; background: rgba(255,240,230,0.55); padding: 6px 18px; border-radius: 60px; backdrop-filter: blur(4px);">✨ tap the envelope — a beautiful 4K letter awaits ✨</div>
+    <div style="margin-top: 30px; font-size: 0.8rem; color: #c28b6e; text-align: center; background: rgba(255,240,230,0.55); padding: 6px 18px; border-radius: 60px; backdrop-filter: blur(4px);">✨ ចុចលើសំបុត្រនឹងម៉ាក់ ✨</div>
 </div>
 
 <!-- 4K LETTER MODAL with extended Khmer text + QR picture placeholder -->
@@ -482,14 +482,9 @@
         
         <!-- Beautiful Photo Section + QR Code Picture (YOU CAN CHANGE QR IMAGE LATER) -->
         <div class="photo-container">
-            <img id="motherPhotoImg" class="mother-photo" src="https://plus.unsplash.com/premium_photo-1666672388644-2d99f3feb9f1?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8anBnfGVufDB8fDB8fHww"/>
+            <img id="motherPhotoImg" class="mother-photo" src="https://scontent.fpnh5-2.fna.fbcdn.net/v/t39.30808-6/430992042_1741608802995089_8208996835778500515_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeGl13nEOcl4GAu3TKcCbue2V9FWl1SZ2XdX0VaXVJnZd6jF4GgHnM1685ufLDSFztzQTehiuGHA5o2gzIHUoxq6&_nc_ohc=VzyFTTFOhvkQ7kNvwGsMYEm&_nc_oc=Adom7WNJH8OjVmAuBKb63rvzf6gDV6VbkEHoW-rNmdyo6ND6p3Q6KEqbq0-fO4AXyZ8&_nc_zt=23&_nc_ht=scontent.fpnh5-2.fna&_nc_gid=MdBchyaz5aV7Xm7wHWtqAg&_nc_ss=7b2a8&oh=00_Af5ZBQ4rscHgzxa-Dwlf-gO4geIcOBXvzaV5NMZ6Zwsd9Q&oe=6A065A06"/>
             <!-- QR Code Picture Area - YOU CAN REPLACE THE SRC LATER -->
-            <div class="qr-container">
-                <div class="qr-picture" id="qrPictureBox">
-                    <img id="qrCodeImg" src="https://plus.unsplash.com/premium_photo-1666672388644-2d99f3feb9f1?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8anBnfGVufDB8fDB8fHww" alt="QR Code Placeholder - replace later">
-                </div>
-                <div class="qr-placeholder-text">⭐ កូនស្រឡាញ់ម៉ាក់ ⭐</div>
-            </div>
+           
         </div>
         
         <!-- Animated Khmer Message Area (typing effect) -->
@@ -499,6 +494,12 @@
         <div id="extraMessageContainer" style="text-align: center; margin-top: 8px;"></div>
         
         <div class="english-translation-4k" id="englishTranslation">"Happy Mother's Day ❤️ Thank you for always loving, caring, and sacrificing everything for me. I love you so much."</div>
+         <div class="qr-container">
+                <div class="qr-picture" id="qrPictureBox">
+                    <img id="qrCodeImg" src="qr.jpg" alt="QR Code Placeholder - replace later">
+                </div>
+                <div class="qr-placeholder-text">⭐ កូនស្រឡាញ់ម៉ាក់ ⭐</div>
+            </div>
         <div class="signature-4k" id="signatureModal">With endless love and gratitude,<br>Your forever grateful child 💕</div>
         <button class="close-letter-btn" id="closeModalBtn">✧ Close Letter ✧</button>
     </div>
@@ -518,7 +519,7 @@
 កូនស្រឡាញ់ម៉ាក់ខ្លាំងណាស់​អរគុណច្រើនម៉ា់ក់✨`;
 
         // Additional small note to display after typing completes (just to emphasize)
-        const extraNote = "🌸 កូននឹងនៅជាប់នឹងម៉ាក់ជានិច្ច 🌸";
+        const extraNote = "🌸 កុំភ្លេចស្គេន Qr code កូនផងម៉ាក់​ 🌸";
         
         const envelope = document.getElementById('realEnvelope');
         const letterModal = document.getElementById('letterModal');

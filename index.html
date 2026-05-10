@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Mother's Day | 4K Cinematic Letter</title>
+    <title>Mother's Day | 4K Cinematic Letter with QR</title>
     <style>
         * {
             margin: 0;
@@ -46,7 +46,7 @@
             100% { transform: translateY(-50px) translateX(30px) scale(1.2); opacity: 0.6; }
         }
 
-        /* Floating hearts & petals canvas - optimized */
+        /* Floating hearts & petals canvas */
         #floatingCanvas {
             position: fixed;
             top: 0;
@@ -169,7 +169,7 @@
             transform: rotateX(180deg);
         }
 
-        /* ========== 4K LETTER MODAL - CENTERED, BEAUTIFUL ========== */
+        /* ========== 4K LETTER MODAL ========== */
         .letter-modal {
             position: fixed;
             top: 0;
@@ -195,7 +195,7 @@
         .letter-card-4k {
             background: #fffef7;
             width: 90%;
-            max-width: 620px;
+            max-width: 650px;
             max-height: 85vh;
             border-radius: 32px;
             padding: 1.8rem 1.8rem 1.5rem;
@@ -277,15 +277,18 @@
             margin: 10px auto;
         }
         
-        /* ===== PHOTO CONTAINER WITH ELEGANT ANIMATION ===== */
+        /* Photo + QR Section */
         .photo-container {
             display: flex;
             justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
             margin: 10px 0 15px;
+            align-items: center;
         }
         .mother-photo {
-            width: 130px;
-            height: 130px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             object-fit: cover;
             object-position: center;
@@ -293,6 +296,58 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.12), 0 0 0 2px #fff, 0 0 0 5px #eccfba;
             animation: photoGlow 2.5s infinite alternate, photoFloat 3.5s ease-in-out infinite;
             transition: transform 0.3s ease;
+        }
+        /* QR Code Picture container */
+        .qr-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .qr-picture {
+            width: 110px;
+            height: 110px;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border: 2px solid #f0cfb8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            background: #fef8f0;
+            cursor: pointer;
+        }
+        .qr-picture img {
+            width: 95%;
+            height: 95%;
+            object-fit: contain;
+            border-radius: 16px;
+        }
+        /* QR placeholder - user will replace image later */
+        .qr-placeholder-text {
+            font-size: 0.7rem;
+            color: #b48462;
+            margin-top: 6px;
+            text-align: center;
+            background: rgba(255,235,220,0.6);
+            padding: 4px 8px;
+            border-radius: 30px;
+            font-style: italic;
+        }
+        .qr-picture:hover {
+            transform: scale(1.02);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         @keyframes photoGlow {
             0% { box-shadow: 0 10px 25px rgba(0,0,0,0.12), 0 0 0 2px #fff, 0 0 0 5px #eccfba; }
@@ -303,11 +358,8 @@
             50% { transform: translateY(-4px); }
             100% { transform: translateY(0px); }
         }
-        .mother-photo:active {
-            transform: scale(0.98);
-        }
         
-        /* Khmer message styling - elegant */
+        /* Khmer message styling - animated typing area */
         .khmer-message-4k {
             font-size: 1.15rem;
             line-height: 1.75;
@@ -321,6 +373,23 @@
             margin: 12px 0;
             letter-spacing: 0.2px;
             font-weight: 500;
+            min-height: 210px;
+        }
+        
+        /* extra message after typing */
+        .extra-message {
+            text-align: center;
+            font-size: 1rem;
+            color: #b4553a;
+            margin-top: 5px;
+            font-weight: bold;
+            background: rgba(255,240,225,0.6);
+            padding: 8px 12px;
+            border-radius: 40px;
+            display: inline-block;
+            width: auto;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .english-translation-4k {
@@ -376,11 +445,12 @@
         @media (max-width: 600px) {
             .envelope { width: 300px; height: 195px; }
             .letter-card-4k { padding: 1.3rem; width: 92%; }
-            .khmer-message-4k { font-size: 0.95rem; padding: 12px; }
+            .khmer-message-4k { font-size: 0.95rem; padding: 12px; min-height: 190px; }
             .greeting { font-size: 1.4rem; }
             .wax-seal { width: 44px; height: 44px; top: -14px; }
-            .mother-photo { width: 100px; height: 100px; }
-            .wax-seal::after { font-size: 20px; }
+            .mother-photo { width: 85px; height: 85px; }
+            .qr-picture { width: 85px; height: 85px; }
+            .photo-container { gap: 12px; }
         }
     </style>
 </head>
@@ -401,7 +471,7 @@
     <div style="margin-top: 30px; font-size: 0.8rem; color: #c28b6e; text-align: center; background: rgba(255,240,230,0.55); padding: 6px 18px; border-radius: 60px; backdrop-filter: blur(4px);">✨ tap the envelope — a beautiful 4K letter awaits ✨</div>
 </div>
 
-<!-- 4K LETTER MODAL with STATIC PHOTO (pre-loaded elegant mother's photo) -->
+<!-- 4K LETTER MODAL with extended Khmer text + QR picture placeholder -->
 <div class="letter-modal" id="letterModal">
     <div class="letter-card-4k">
         <div class="wax-seal"></div>
@@ -410,12 +480,24 @@
             <div class="divider"></div>
         </div>
         
-        <!-- Beautiful Photo Section with elegant static image (floral mother's day themed) -->
+        <!-- Beautiful Photo Section + QR Code Picture (YOU CAN CHANGE QR IMAGE LATER) -->
         <div class="photo-container">
-            <img id="motherPhotoImg" class="mother-photo" src="data:image/jpeg;base64,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" alt="Mother's Portrait">
+            <img id="motherPhotoImg" class="mother-photo" src="https://plus.unsplash.com/premium_photo-1666672388644-2d99f3feb9f1?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8anBnfGVufDB8fDB8fHww"/>
+            <!-- QR Code Picture Area - YOU CAN REPLACE THE SRC LATER -->
+            <div class="qr-container">
+                <div class="qr-picture" id="qrPictureBox">
+                    <img id="qrCodeImg" src="https://plus.unsplash.com/premium_photo-1666672388644-2d99f3feb9f1?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8anBnfGVufDB8fDB8fHww" alt="QR Code Placeholder - replace later">
+                </div>
+                <div class="qr-placeholder-text">⭐ កូនស្រឡាញ់ម៉ាក់ ⭐</div>
+            </div>
         </div>
         
+        <!-- Animated Khmer Message Area (typing effect) -->
         <div class="khmer-message-4k" id="khmerMessageModal"></div>
+        
+        <!-- Extra special message after typing completes: "ហើយ QR Code កូននៅដដែលម៉ាក់" + love note -->
+        <div id="extraMessageContainer" style="text-align: center; margin-top: 8px;"></div>
+        
         <div class="english-translation-4k" id="englishTranslation">"Happy Mother's Day ❤️ Thank you for always loving, caring, and sacrificing everything for me. I love you so much."</div>
         <div class="signature-4k" id="signatureModal">With endless love and gratitude,<br>Your forever grateful child 💕</div>
         <button class="close-letter-btn" id="closeModalBtn">✧ Close Letter ✧</button>
@@ -424,23 +506,31 @@
 
 <script>
     (function() {
-        // Beautiful Khmer message with line breaks
+        // Extended Khmer text with beautiful lines including the requested phrase "ហើយ QR Code កូននៅដដែលម៉ាក់"
         const fullKhmerText = `រីករាយថ្ងៃបុណ្យអ្នកម្ដាយ ❤️
 
 អរគុណម៉ាក់ដែលតែងតែស្រឡាញ់ ថែរក្សា 
 និងលះបង់គ្រប់យ៉ាងសម្រាប់ខ្ញុំ។
 
-ខ្ញុំស្រឡាញ់ម៉ាក់ខ្លាំងណាស់ 💕`;
+ខ្ញុំស្រឡាញ់ម៉ាក់ខ្លាំងណាស់ 💕
 
+ហើយ QR Code កូននៅដដែលម៉ាក់ 💖
+កូនស្រឡាញ់ម៉ាក់ខ្លាំងណាស់​អរគុណច្រើនម៉ា់ក់✨`;
+
+        // Additional small note to display after typing completes (just to emphasize)
+        const extraNote = "🌸 កូននឹងនៅជាប់នឹងម៉ាក់ជានិច្ច 🌸";
+        
         const envelope = document.getElementById('realEnvelope');
         const letterModal = document.getElementById('letterModal');
         const khmerModalDiv = document.getElementById('khmerMessageModal');
         const closeModalBtn = document.getElementById('closeModalBtn');
+        const extraContainer = document.getElementById('extraMessageContainer');
         
         let isOpened = false;
         let typingTimer = null;
+        let currentTypingAnimation = null;
 
-        // Spectacular sparkle effect (optimized for mobile)
+        // Spectacular sparkle effect
         function burstSparkles() {
             const sparkContainer = document.createElement('div');
             sparkContainer.className = 'sparkle-burst';
@@ -448,7 +538,7 @@
             const rect = envelope.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
             const centerY = rect.top + rect.height / 2;
-            const sparkCount = 60; // reduced for performance but still beautiful
+            const sparkCount = 60;
             for (let i = 0; i < sparkCount; i++) {
                 const star = document.createElement('div');
                 const size = Math.random() * 9 + 3;
@@ -478,44 +568,52 @@
             setTimeout(() => sparkContainer.remove(), 1100);
         }
 
-        // Typing effect for Khmer text inside modal
+        // Typing effect with full text (contains QR phrase)
         function typeKhmerInModal() {
-            if (typingTimer) clearTimeout(typingTimer);
+            if (currentTypingAnimation) clearTimeout(currentTypingAnimation);
             khmerModalDiv.innerHTML = '';
+            extraContainer.innerHTML = ''; // clear extra first
             let idx = 0;
             function addChar() {
                 if (idx < fullKhmerText.length) {
                     khmerModalDiv.innerHTML += fullKhmerText.charAt(idx);
                     idx++;
-                    setTimeout(addChar, 30);
+                    currentTypingAnimation = setTimeout(addChar, 32);
+                } else {
+                    // after full text typing, show extra note with gentle animation
+                    const extraSpan = document.createElement('div');
+                    extraSpan.className = 'extra-message';
+                    extraSpan.innerHTML = `🌷 ${extraNote} 🌷`;
+                    extraContainer.appendChild(extraSpan);
+                    extraSpan.style.opacity = '0';
+                    extraSpan.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        extraSpan.style.transition = 'all 0.4s ease';
+                        extraSpan.style.opacity = '1';
+                        extraSpan.style.transform = 'scale(1)';
+                    }, 50);
+                    currentTypingAnimation = null;
                 }
             }
             addChar();
         }
 
-        // Open modal with letter and photo animation
         function openLetterModal() {
             letterModal.classList.add('active');
             typeKhmerInModal();
         }
 
-        // Envelope click sequence: open envelope, sparkles, then show modal
         function openEnvelopeAndShowLetter() {
             if (isOpened) return;
             isOpened = true;
             envelope.classList.add('open');
-            
-            // Sparkle celebration
             burstSparkles();
             setTimeout(() => burstSparkles(), 200);
-            
-            // After envelope flap animation, show the modal with letter
             setTimeout(() => {
                 openLetterModal();
-            }, 500);
+            }, 550);
         }
 
-        // Event listeners
         envelope.addEventListener('click', (e) => {
             e.stopPropagation();
             if (!isOpened) openEnvelopeAndShowLetter();
@@ -529,25 +627,24 @@
             });
         }
         
-        // Close modal
         closeModalBtn.addEventListener('click', () => {
             letterModal.classList.remove('active');
+            if (currentTypingAnimation) clearTimeout(currentTypingAnimation);
         });
         
-        // Close modal when clicking outside the card
         letterModal.addEventListener('click', (e) => {
             if (e.target === letterModal) {
                 letterModal.classList.remove('active');
+                if (currentTypingAnimation) clearTimeout(currentTypingAnimation);
             }
         });
 
-        // ---------- OPTIMIZED FLOATING HEARTS & PETALS (Lightweight) ----------
+        // ---------- FLOATING HEARTS & PETALS CANVAS ----------
         const canvas = document.getElementById('floatingCanvas');
         let ctx = canvas.getContext('2d');
         let w, h;
         let particles = [];
         let animationId = null;
-        let lastTimestamp = 0;
 
         class ParticleItem {
             constructor(type) {
@@ -599,7 +696,7 @@
 
         function initParticles() {
             particles = [];
-            const totalCount = 40; // Optimized for mobile performance
+            const totalCount = 40;
             for (let i = 0; i < totalCount; i++) {
                 const kind = Math.random() > 0.55 ? 'heart' : 'petal';
                 particles.push(new ParticleItem(kind));
@@ -624,20 +721,17 @@
             animationId = requestAnimationFrame(animateParticles);
         }
 
-        window.addEventListener('resize', () => { 
-            resizeAndReset(); 
-        });
+        window.addEventListener('resize', () => { resizeAndReset(); });
         resizeAndReset();
         animateParticles();
 
-        // Clean up animation on page hide (optional)
         window.addEventListener('beforeunload', () => {
             if (animationId) cancelAnimationFrame(animationId);
         });
 
-        // Bokeh generation (lightweight)
+        // Bokeh elements
         const bokehContainer = document.getElementById('bokehContainer');
-        const bokehCount = Math.min(35, Math.floor(window.innerWidth / 30)); // adaptive
+        const bokehCount = Math.min(35, Math.floor(window.innerWidth / 30));
         for (let i = 0; i < bokehCount; i++) {
             const bokehDiv = document.createElement('div');
             bokehDiv.classList.add('bokeh');
@@ -652,7 +746,7 @@
             bokehContainer.appendChild(bokehDiv);
         }
 
-        // Additional premium styling for modal
+        // Additional styling
         const stylePremium = document.createElement('style');
         stylePremium.textContent = `
             .letter-card-4k {
@@ -661,6 +755,7 @@
             }
             .khmer-message-4k {
                 text-shadow: 0 1px 1px rgba(255,240,210,0.3);
+                white-space: pre-line;
             }
             .letter-modal.active {
                 backdrop-filter: blur(12px);
@@ -668,17 +763,14 @@
             .env-flap {
                 transition: transform 0.6s cubic-bezier(0.2, 0.95, 0.3, 1.1);
             }
+            .qr-picture img {
+                transition: all 0.2s;
+            }
         `;
         document.head.appendChild(stylePremium);
         
-        // Preload/optimize: disable animations when modal is closed to save battery
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                if (animationId) cancelAnimationFrame(animationId);
-            } else {
-                if (!animationId) animateParticles();
-            }
-        });
+        // Note: QR Code image placeholder: replace 'src' attribute of #qrCodeImg with your own QR picture URL later.
+        // Instruction is clear: user can change later.
     })();
 </script>
 </body>

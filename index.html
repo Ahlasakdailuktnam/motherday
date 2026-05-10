@@ -1,585 +1,430 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
-    />
-    <title>Mother's Day | 4K Cinematic Letter Experience</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Mother's Day | 4K Cinematic Letter</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        min-height: 100vh;
-        background: radial-gradient(ellipse at 30% 20%, #fff5ed, #ffe3d4);
-        font-family:
-          "Cormorant Garamond", "Noto Sans Khmer", "Khmer OS", "Moul", serif;
-        overflow-x: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-      }
-
-      /* Animated bokeh lights */
-      .bokeh-layer {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 0;
-        overflow: hidden;
-      }
-      .bokeh {
-        position: absolute;
-        background: radial-gradient(
-          circle,
-          rgba(255, 220, 180, 0.5) 0%,
-          rgba(255, 190, 140, 0) 80%
-        );
-        border-radius: 50%;
-        filter: blur(35px);
-        animation: floatBokeh 16s infinite alternate ease-in-out;
-      }
-      @keyframes floatBokeh {
-        0% {
-          transform: translateY(0px) translateX(0px) scale(1);
-          opacity: 0.3;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
-        100% {
-          transform: translateY(-60px) translateX(40px) scale(1.25);
-          opacity: 0.65;
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(ellipse at 30% 20%, #fff5ed, #ffe3d4);
+            font-family: 'Cormorant Garamond', 'Noto Sans Khmer', 'Khmer OS', 'Moul', serif;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
-      }
 
-      /* Floating hearts & petals canvas */
-      #floatingCanvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1;
-      }
-
-      /* Main container */
-      .main-container {
-        position: relative;
-        z-index: 20;
-        width: 100%;
-        max-width: 1300px;
-        margin: 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 90vh;
-      }
-
-      /* Glowing header */
-      .hero-title {
-        text-align: center;
-        margin-bottom: 2rem;
-        animation: softPulse 3s infinite alternate;
-      }
-      .hero-title h1 {
-        font-size: clamp(2.2rem, 8vw, 5rem);
-        font-weight: 500;
-        background: linear-gradient(135deg, #e8aa95, #d9896e);
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        text-shadow: 0 5px 25px rgba(226, 140, 100, 0.3);
-        letter-spacing: 2px;
-        font-family: "Cormorant Garamond", serif;
-      }
-      @keyframes softPulse {
-        0% {
-          text-shadow:
-            0 0 2px #ffd5c0,
-            0 0 8px rgba(255, 200, 170, 0.2);
+        /* Animated bokeh lights - optimized */
+        .bokeh-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
         }
-        100% {
-          text-shadow:
-            0 0 20px #ffcfb0,
-            0 0 30px rgba(245, 170, 130, 0.5);
+        .bokeh {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255,220,180,0.4) 0%, rgba(255,190,140,0) 80%);
+            border-radius: 50%;
+            filter: blur(30px);
+            animation: floatBokeh 16s infinite alternate ease-in-out;
         }
-      }
-
-      /* ========== 4K REALISTIC ENVELOPE ========== */
-      .envelope-stage {
-        perspective: 1600px;
-        margin: 25px auto;
-        cursor: pointer;
-      }
-      .envelope {
-        position: relative;
-        width: 420px;
-        height: 270px;
-        transform-style: preserve-3d;
-        transition:
-          transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.2),
-          filter 0.3s;
-        animation: elegantFloat 3.5s infinite ease-in-out;
-      }
-      @keyframes elegantFloat {
-        0% {
-          transform: translateY(0px);
-          filter: drop-shadow(0 15px 18px rgba(0, 0, 0, 0.1));
+        @keyframes floatBokeh {
+            0% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.3; }
+            100% { transform: translateY(-50px) translateX(30px) scale(1.2); opacity: 0.6; }
         }
-        50% {
-          transform: translateY(-8px);
-          filter: drop-shadow(0 28px 28px rgba(180, 100, 70, 0.2));
+
+        /* Floating hearts & petals canvas - optimized */
+        #floatingCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
         }
-        100% {
-          transform: translateY(0px);
-          filter: drop-shadow(0 15px 18px rgba(0, 0, 0, 0.1));
+
+        /* Main container */
+        .main-container {
+            position: relative;
+            z-index: 20;
+            width: 100%;
+            max-width: 1300px;
+            margin: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 90vh;
         }
-      }
-      .envelope:hover {
-        transform: scale(1.02) translateY(-4px);
-        filter: drop-shadow(0 30px 30px rgba(160, 80, 50, 0.25));
-      }
 
-      .env-base {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(145deg, #f9e9dd, #fde4d2);
-        border-radius: 20px;
-        box-shadow:
-          inset 0 1px 6px rgba(255, 252, 240, 0.9),
-          inset 0 -3px 4px rgba(0, 0, 0, 0.02),
-          0 20px 30px -8px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        border: 1px solid rgba(230, 190, 155, 0.7);
-      }
-      .env-base::before {
-        content: "❤️";
-        position: absolute;
-        bottom: 18px;
-        right: 25px;
-        font-size: 24px;
-        opacity: 0.35;
-        color: #c98564;
-        text-shadow: 0 1px 1px rgba(255, 255, 200, 0.6);
-        pointer-events: none;
-      }
+        /* Glowing header */
+        .hero-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: softPulse 3s infinite alternate;
+        }
+        .hero-title h1 {
+            font-size: clamp(2rem, 7vw, 4.5rem);
+            font-weight: 500;
+            background: linear-gradient(135deg, #e8aa95, #d9896e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 20px rgba(226, 140, 100, 0.3);
+            letter-spacing: 2px;
+        }
+        @keyframes softPulse {
+            0% { text-shadow: 0 0 2px #ffd5c0, 0 0 8px rgba(255,200,170,0.2);}
+            100% { text-shadow: 0 0 18px #ffcfb0, 0 0 25px rgba(245,170,130,0.4);}
+        }
 
-      .env-flap {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 62%;
-        background: linear-gradient(125deg, #fff5ec, #ffefe2);
-        clip-path: polygon(0% 0%, 100% 0%, 50% 72%);
-        z-index: 3;
-        border-radius: 20px 20px 0 0;
-        transform-origin: top;
-        transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
-        box-shadow:
-          inset 0 1px 6px rgba(255, 245, 230, 0.9),
-          0 4px 8px rgba(0, 0, 0, 0.02);
-        cursor: pointer;
-        backface-visibility: hidden;
-      }
-      .env-base::after {
-        content: "";
-        position: absolute;
-        bottom: 15px;
-        left: 25px;
-        right: 25px;
-        height: 35px;
-        background: radial-gradient(
-          ellipse,
-          rgba(0, 0, 0, 0.08) 0%,
-          transparent 70%
-        );
-        border-radius: 50%;
-        pointer-events: none;
-      }
-
-      .envelope.open .env-flap {
-        transform: rotateX(180deg);
-      }
-
-      /* ========== 4K LETTER MODAL - CENTERED, BEAUTIFUL ========== */
-      .letter-modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(12px);
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.2);
-      }
-      .letter-modal.active {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      /* The 4K Letter Card */
-      .letter-card-4k {
-        background: #fffef7;
-        width: 90%;
-        max-width: 620px;
-        max-height: 85vh;
-        border-radius: 28px;
-        padding: 2.2rem 2rem;
-        box-shadow:
-          0 40px 70px rgba(0, 0, 0, 0.3),
-          0 0 0 1px rgba(230, 200, 170, 0.5),
-          inset 0 1px 0 rgba(255, 255, 245, 0.9);
-        transform: scale(0.9) translateY(30px);
-        transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.2);
-        overflow-y: auto;
-        position: relative;
-        font-family: "Cormorant Garamond", "Noto Sans Khmer", serif;
-        backdrop-filter: blur(2px);
-      }
-      .letter-modal.active .letter-card-4k {
-        transform: scale(1) translateY(0);
-      }
-
-      /* Premium paper texture */
-      .letter-card-4k::before {
-        content: "";
-        position: absolute;
-        top: 20px;
-        left: 30px;
-        right: 30px;
-        height: 60px;
-        background: repeating-linear-gradient(
-          45deg,
-          rgba(200, 170, 130, 0.06) 0px,
-          rgba(200, 170, 130, 0.06) 3px,
-          transparent 3px,
-          transparent 12px
-        );
-        border-radius: 12px;
-        pointer-events: none;
-      }
-
-      .letter-card-4k::-webkit-scrollbar {
-        width: 5px;
-      }
-      .letter-card-4k::-webkit-scrollbar-track {
-        background: #f0e0d4;
-        border-radius: 10px;
-      }
-      .letter-card-4k::-webkit-scrollbar-thumb {
-        background: #cfa98a;
-        border-radius: 10px;
-      }
-
-      /* Wax seal decoration */
-      .wax-seal {
-        position: absolute;
-        top: -18px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 55px;
-        height: 55px;
-        background: radial-gradient(circle, #d4452a, #a1321a);
-        border-radius: 50%;
-        box-shadow:
-          0 5px 12px rgba(0, 0, 0, 0.2),
-          inset 0 1px 2px rgba(255, 255, 200, 0.4);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 28px;
-        font-family: "Segoe UI", sans-serif;
-        z-index: 10;
-      }
-      .wax-seal::after {
-        content: "❤️";
-        font-size: 24px;
-        color: #ffefcf;
-        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-      }
-
-      /* Letter header */
-      .letter-header {
-        text-align: center;
-        margin-top: 10px;
-        margin-bottom: 20px;
-      }
-      .letter-header .greeting {
-        font-size: 2rem;
-        font-weight: 500;
-        color: #b47c62;
-        letter-spacing: 2px;
-        font-family: "Cormorant Garamond", serif;
-      }
-      .letter-header .divider {
-        width: 80px;
-        height: 2px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          #d4a58a,
-          #d4a58a,
-          transparent
-        );
-        margin: 12px auto;
-      }
-
-      /* Khmer message styling - elegant */
-      .khmer-message-4k {
-        font-size: 1.3rem;
-        line-height: 1.85;
-        text-align: center;
-        white-space: pre-line;
-        font-family: "Noto Sans Khmer", "Khmer OS", "Cormorant Garamond", serif;
-        color: #4a2c22;
-        background: rgba(250, 240, 230, 0.4);
-        padding: 20px 16px;
-        border-radius: 24px;
-        margin: 15px 0;
-        letter-spacing: 0.3px;
-        font-weight: 500;
-      }
-
-      .english-translation-4k {
-        font-size: 0.9rem;
-        font-style: italic;
-        color: #b48a72;
-        text-align: center;
-        margin: 10px 0 20px;
-        letter-spacing: 0.5px;
-      }
-
-      .signature-4k {
-        text-align: center;
-        margin-top: 25px;
-        padding-top: 18px;
-        border-top: 1px solid #efd5c2;
-        font-size: 1.1rem;
-        font-style: italic;
-        color: #b27b62;
-      }
-
-      .close-letter-btn {
-        display: block;
-        margin: 25px auto 0;
-        background: rgba(210, 160, 130, 0.2);
-        border: 1px solid #d4a58a;
-        padding: 10px 28px;
-        border-radius: 50px;
-        font-size: 1rem;
-        cursor: pointer;
-        color: #9b6a50;
-        font-family: "Cormorant Garamond", serif;
-        font-weight: 600;
-        transition: all 0.3s;
-        backdrop-filter: blur(4px);
-      }
-      .close-letter-btn:hover {
-        background: #d4a58a;
-        color: white;
-        transform: scale(1.02);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-      }
-
-      /* Sparkle effect */
-      .sparkle-burst {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1001;
-      }
-
-      /* Music player */
-      .music-panel {
-        position: fixed;
-        bottom: 28px;
-        right: 28px;
-        background: rgba(255, 245, 235, 0.9);
-        backdrop-filter: blur(16px);
-        border-radius: 60px;
-        padding: 8px 20px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        z-index: 300;
-        border: 1px solid rgba(255, 215, 185, 0.8);
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
-        font-family: system-ui, sans-serif;
-      }
-      .music-toggle {
-        background: rgba(200, 150, 120, 0.25);
-        border: none;
-        font-size: 1rem;
-        cursor: pointer;
-        padding: 6px 16px;
-        border-radius: 40px;
-        font-weight: 500;
-        color: #ac6f54;
-        transition: all 0.2s;
-        font-family: inherit;
-      }
-      .music-toggle:hover {
-        background: #ffe0cf;
-        transform: scale(1.02);
-      }
-      .upload-label {
-        background: rgba(200, 150, 120, 0.2);
-        padding: 6px 14px;
-        border-radius: 40px;
-        font-size: 0.8rem;
-        cursor: pointer;
-        color: #ac6f54;
-        font-weight: 500;
-        transition: 0.2s;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-      }
-      .upload-label:hover {
-        background: #ffe0cf;
-      }
-      #songUpload {
-        display: none;
-      }
-      .now-playing {
-        font-size: 0.7rem;
-        color: #ca8f72;
-        max-width: 140px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-
-      @media (max-width: 650px) {
+        /* ========== 4K REALISTIC ENVELOPE ========== */
+        .envelope-stage {
+            perspective: 1200px;
+            margin: 20px auto;
+            cursor: pointer;
+        }
         .envelope {
-          width: 310px;
-          height: 205px;
+            position: relative;
+            width: 380px;
+            height: 245px;
+            transform-style: preserve-3d;
+            transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+            animation: elegantFloat 3.5s infinite ease-in-out;
         }
+        @keyframes elegantFloat {
+            0% { transform: translateY(0px); filter: drop-shadow(0 12px 15px rgba(0,0,0,0.1));}
+            50% { transform: translateY(-6px); filter: drop-shadow(0 22px 22px rgba(180,100,70,0.15));}
+            100% { transform: translateY(0px); filter: drop-shadow(0 12px 15px rgba(0,0,0,0.1));}
+        }
+        .envelope:hover {
+            transform: scale(1.01) translateY(-3px);
+            filter: drop-shadow(0 25px 25px rgba(160, 80, 50, 0.2));
+        }
+
+        .env-base {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #f9e9dd, #fde4d2);
+            border-radius: 18px;
+            box-shadow: inset 0 1px 5px rgba(255,252,240,0.9), inset 0 -2px 3px rgba(0,0,0,0.02), 0 15px 25px -8px rgba(0,0,0,0.15);
+            z-index: 1;
+            border: 1px solid rgba(230,190,155,0.6);
+        }
+        .env-base::before {
+            content: "❤️";
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            font-size: 20px;
+            opacity: 0.35;
+            color: #c98564;
+            pointer-events: none;
+        }
+
+        .env-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 62%;
+            background: linear-gradient(125deg, #fff5ec, #ffefe2);
+            clip-path: polygon(0% 0%, 100% 0%, 50% 72%);
+            z-index: 3;
+            border-radius: 18px 18px 0 0;
+            transform-origin: top;
+            transition: transform 0.65s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: inset 0 1px 5px rgba(255,245,230,0.9);
+            cursor: pointer;
+            backface-visibility: hidden;
+        }
+        .env-base::after {
+            content: "";
+            position: absolute;
+            bottom: 12px;
+            left: 20px;
+            right: 20px;
+            height: 30px;
+            background: radial-gradient(ellipse, rgba(0,0,0,0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .envelope.open .env-flap {
+            transform: rotateX(180deg);
+        }
+
+        /* ========== 4K LETTER MODAL - CENTERED, BEAUTIFUL ========== */
+        .letter-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.45s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+        }
+        .letter-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* The 4K Letter Card - Premium Design */
         .letter-card-4k {
-          padding: 1.5rem;
-          width: 92%;
+            background: #fffef7;
+            width: 90%;
+            max-width: 620px;
+            max-height: 85vh;
+            border-radius: 32px;
+            padding: 1.8rem 1.8rem 1.5rem;
+            box-shadow: 0 45px 70px rgba(0,0,0,0.3), 0 0 0 1px rgba(230,200,170,0.5), inset 0 1px 0 rgba(255,255,245,0.9);
+            transform: scale(0.92) translateY(25px);
+            transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+            overflow-y: auto;
+            position: relative;
+            font-family: 'Cormorant Garamond', 'Noto Sans Khmer', serif;
         }
-        .khmer-message-4k {
-          font-size: 1rem;
-          padding: 12px;
+        .letter-modal.active .letter-card-4k {
+            transform: scale(1) translateY(0);
         }
-        .greeting {
-          font-size: 1.5rem;
+        
+        /* Paper texture */
+        .letter-card-4k::before {
+            content: "";
+            position: absolute;
+            top: 18px;
+            left: 25px;
+            right: 25px;
+            height: 70px;
+            background: repeating-linear-gradient(45deg, rgba(200,170,130,0.05) 0px, rgba(200,170,130,0.05) 3px, transparent 3px, transparent 12px);
+            border-radius: 12px;
+            pointer-events: none;
         }
+        
+        .letter-card-4k::-webkit-scrollbar {
+            width: 4px;
+        }
+        .letter-card-4k::-webkit-scrollbar-track {
+            background: #f0e0d4;
+            border-radius: 10px;
+        }
+        .letter-card-4k::-webkit-scrollbar-thumb {
+            background: #cfa98a;
+            border-radius: 10px;
+        }
+        
+        /* Wax seal */
         .wax-seal {
-          width: 45px;
-          height: 45px;
-          font-size: 22px;
-          top: -15px;
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 52px;
+            height: 52px;
+            background: radial-gradient(circle, #d4452a, #a1321a);
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2), inset 0 1px 2px rgba(255,255,200,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
         }
-      }
+        .wax-seal::after {
+            content: "❤️";
+            font-size: 24px;
+            color: #ffefcf;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.15);
+        }
+        
+        /* Letter header */
+        .letter-header {
+            text-align: center;
+            margin-top: 8px;
+            margin-bottom: 18px;
+        }
+        .letter-header .greeting {
+            font-size: 1.9rem;
+            font-weight: 500;
+            color: #b47c62;
+            letter-spacing: 1.5px;
+        }
+        .letter-header .divider {
+            width: 70px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4a58a, #d4a58a, transparent);
+            margin: 10px auto;
+        }
+        
+        /* ===== PHOTO CONTAINER WITH ELEGANT ANIMATION ===== */
+        .photo-container {
+            display: flex;
+            justify-content: center;
+            margin: 10px 0 15px;
+        }
+        .mother-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            border: 3px solid #f0d5c2;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12), 0 0 0 2px #fff, 0 0 0 5px #eccfba;
+            animation: photoGlow 2.5s infinite alternate, photoFloat 3.5s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+        @keyframes photoGlow {
+            0% { box-shadow: 0 10px 25px rgba(0,0,0,0.12), 0 0 0 2px #fff, 0 0 0 5px #eccfba; }
+            100% { box-shadow: 0 15px 32px rgba(212, 100, 70, 0.2), 0 0 0 2px #fff, 0 0 0 8px #f1cfb8; }
+        }
+        @keyframes photoFloat {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
+            100% { transform: translateY(0px); }
+        }
+        .mother-photo:active {
+            transform: scale(0.98);
+        }
+        
+        /* Khmer message styling - elegant */
+        .khmer-message-4k {
+            font-size: 1.15rem;
+            line-height: 1.75;
+            text-align: center;
+            white-space: pre-line;
+            font-family: 'Noto Sans Khmer', 'Khmer OS', 'Cormorant Garamond', serif;
+            color: #4a2c22;
+            background: rgba(250,240,230,0.45);
+            padding: 16px 14px;
+            border-radius: 24px;
+            margin: 12px 0;
+            letter-spacing: 0.2px;
+            font-weight: 500;
+        }
+        
+        .english-translation-4k {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: #b48a72;
+            text-align: center;
+            margin: 8px 0 16px;
+            letter-spacing: 0.3px;
+        }
+        
+        .signature-4k {
+            text-align: center;
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid #efd5c2;
+            font-size: 1rem;
+            font-style: italic;
+            color: #b27b62;
+        }
+        
+        .close-letter-btn {
+            display: block;
+            margin: 20px auto 5px;
+            background: rgba(210, 160, 130, 0.2);
+            border: 1px solid #d4a58a;
+            padding: 8px 26px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            color: #9b6a50;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            transition: all 0.25s;
+        }
+        .close-letter-btn:hover, .close-letter-btn:active {
+            background: #d4a58a;
+            color: white;
+            transform: scale(1.02);
+        }
+        
+        /* Sparkle effect */
+        .sparkle-burst {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1001;
+        }
 
-      /* typing animation class */
-      .typing-cursor {
-        display: inline-block;
-        width: 2px;
-        background: #b47c62;
-        margin-left: 2px;
-        animation: blink 0.8s infinite;
-      }
-      @keyframes blink {
-        0%,
-        100% {
-          opacity: 1;
+        @media (max-width: 600px) {
+            .envelope { width: 300px; height: 195px; }
+            .letter-card-4k { padding: 1.3rem; width: 92%; }
+            .khmer-message-4k { font-size: 0.95rem; padding: 12px; }
+            .greeting { font-size: 1.4rem; }
+            .wax-seal { width: 44px; height: 44px; top: -14px; }
+            .mother-photo { width: 100px; height: 100px; }
+            .wax-seal::after { font-size: 20px; }
         }
-        50% {
-          opacity: 0;
-        }
-      }
     </style>
-  </head>
-  <body>
-    <div class="bokeh-layer" id="bokehContainer"></div>
-    <canvas id="floatingCanvas"></canvas>
+</head>
+<body>
+<div class="bokeh-layer" id="bokehContainer"></div>
+<canvas id="floatingCanvas"></canvas>
 
-    <div class="main-container">
-      <div class="hero-title">
+<div class="main-container">
+    <div class="hero-title">
         <h1>Happy Mother’s Day 💖</h1>
-      </div>
-      <div class="envelope-stage">
-        <div class="envelope" id="realEnvelope">
-          <div class="env-base"></div>
-          <div class="env-flap"></div>
-        </div>
-      </div>
-      <div
-        style="
-          margin-top: 35px;
-          font-size: 0.85rem;
-          color: #c28b6e;
-          text-align: center;
-          background: rgba(255, 240, 230, 0.6);
-          padding: 8px 20px;
-          border-radius: 60px;
-          backdrop-filter: blur(4px);
-        "
-      >
-        ✨ click the envelope — a 4K letter will appear ✨
-      </div>
     </div>
+    <div class="envelope-stage">
+        <div class="envelope" id="realEnvelope">
+            <div class="env-base"></div>
+            <div class="env-flap"></div>
+        </div>
+    </div>
+    <div style="margin-top: 30px; font-size: 0.8rem; color: #c28b6e; text-align: center; background: rgba(255,240,230,0.55); padding: 6px 18px; border-radius: 60px; backdrop-filter: blur(4px);">✨ tap the envelope — a beautiful 4K letter awaits ✨</div>
+</div>
 
-    <!-- 4K LETTER MODAL (centered, beautiful) -->
-    <div class="letter-modal" id="letterModal">
-      <div class="letter-card-4k">
+<!-- 4K LETTER MODAL with STATIC PHOTO (pre-loaded elegant mother's photo) -->
+<div class="letter-modal" id="letterModal">
+    <div class="letter-card-4k">
         <div class="wax-seal"></div>
         <div class="letter-header">
-          <div class="greeting">✧ To My Beloved Mother ✧</div>
-          <div class="divider"></div>
+            <div class="greeting">✧ To My Dearest Mother ✧</div>
+            <div class="divider"></div>
         </div>
+        
+        <!-- Beautiful Photo Section with elegant static image (floral mother's day themed) -->
+        <div class="photo-container">
+            <img id="motherPhotoImg" class="mother-photo" src="data:image/jpeg;base64,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" alt="Mother's Portrait">
+        </div>
+        
         <div class="khmer-message-4k" id="khmerMessageModal"></div>
-        <div class="english-translation-4k" id="englishTranslation">
-          "Happy Mother's Day ❤️ Thank you for always loving, caring, and
-          sacrificing everything for me. I love you so much."
-        </div>
-        <div class="signature-4k" id="signatureModal">
-          With endless love and gratitude,<br />Your forever grateful child 💕
-        </div>
-        <button class="close-letter-btn" id="closeModalBtn">
-          ✧ Close Letter ✧
-        </button>
-      </div>
+        <div class="english-translation-4k" id="englishTranslation">"Happy Mother's Day ❤️ Thank you for always loving, caring, and sacrificing everything for me. I love you so much."</div>
+        <div class="signature-4k" id="signatureModal">With endless love and gratitude,<br>Your forever grateful child 💕</div>
+        <button class="close-letter-btn" id="closeModalBtn">✧ Close Letter ✧</button>
     </div>
+</div>
 
-    <!-- Music Widget -->
-    <div class="music-panel">
-      <button class="music-toggle" id="playPauseBtn">🎵 Play Music</button>
-      <label class="upload-label" for="songUpload">📁 Upload Song</label>
-      <input
-        type="file"
-        id="songUpload"
-        accept="audio/mpeg, audio/wav, audio/ogg, audio/mp3"
-      />
-      <span class="now-playing" id="nowPlayingText">No song</span>
-    </div>
-
-    <script>
-      (function () {
-        // Beautiful Khmer message
+<script>
+    (function() {
+        // Beautiful Khmer message with line breaks
         const fullKhmerText = `រីករាយថ្ងៃបុណ្យអ្នកម្ដាយ ❤️
 
 អរគុណម៉ាក់ដែលតែងតែស្រឡាញ់ ថែរក្សា 
@@ -587,314 +432,254 @@
 
 ខ្ញុំស្រឡាញ់ម៉ាក់ខ្លាំងណាស់ 💕`;
 
-        const envelope = document.getElementById("realEnvelope");
-        const letterModal = document.getElementById("letterModal");
-        const khmerModalDiv = document.getElementById("khmerMessageModal");
-        const closeModalBtn = document.getElementById("closeModalBtn");
+        const envelope = document.getElementById('realEnvelope');
+        const letterModal = document.getElementById('letterModal');
+        const khmerModalDiv = document.getElementById('khmerMessageModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        
         let isOpened = false;
-        let typingInterval = null;
+        let typingTimer = null;
 
-        // Spectacular sparkle effect function
+        // Spectacular sparkle effect (optimized for mobile)
         function burstSparkles() {
-          const sparkContainer = document.createElement("div");
-          sparkContainer.className = "sparkle-burst";
-          document.body.appendChild(sparkContainer);
-          const rect = envelope.getBoundingClientRect();
-          const centerX = rect.left + rect.width / 2;
-          const centerY = rect.top + rect.height / 2;
-          const sparkCount = 85;
-          for (let i = 0; i < sparkCount; i++) {
-            const star = document.createElement("div");
-            const size = Math.random() * 11 + 3;
-            star.style.position = "absolute";
-            star.style.width = `${size}px`;
-            star.style.height = `${size}px`;
-            star.style.background = `radial-gradient(circle, #FFE8BE, #FFD89A)`;
-            star.style.borderRadius = "50%";
-            star.style.left = `${centerX + (Math.random() - 0.5) * 190}px`;
-            star.style.top = `${centerY + (Math.random() - 0.5) * 160}px`;
-            star.style.boxShadow = "0 0 22px #ffd89a";
-            star.style.pointerEvents = "none";
-            star.style.opacity = "0.95";
-            star.style.filter = "blur(0.5px)";
-            star.style.transition = "transform 0.9s ease-out, opacity 0.8s";
-            sparkContainer.appendChild(star);
-            const angle = Math.random() * Math.PI * 2;
-            const distance = 70 + Math.random() * 100;
-            const dx = Math.cos(angle) * distance;
-            const dy = Math.sin(angle) * distance - 30;
-            setTimeout(() => {
-              star.style.transform = `translate(${dx}px, ${dy}px) scale(0)`;
-              star.style.opacity = "0";
-            }, 5);
-            setTimeout(() => star.remove(), 1000);
-          }
-          setTimeout(() => sparkContainer.remove(), 1200);
+            const sparkContainer = document.createElement('div');
+            sparkContainer.className = 'sparkle-burst';
+            document.body.appendChild(sparkContainer);
+            const rect = envelope.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const sparkCount = 60; // reduced for performance but still beautiful
+            for (let i = 0; i < sparkCount; i++) {
+                const star = document.createElement('div');
+                const size = Math.random() * 9 + 3;
+                star.style.position = 'absolute';
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.background = `radial-gradient(circle, #FFE8BE, #FFD89A)`;
+                star.style.borderRadius = '50%';
+                star.style.left = `${centerX + (Math.random() - 0.5) * 170}px`;
+                star.style.top = `${centerY + (Math.random() - 0.5) * 140}px`;
+                star.style.boxShadow = '0 0 18px #ffd89a';
+                star.style.pointerEvents = 'none';
+                star.style.opacity = '0.9';
+                star.style.filter = 'blur(0.5px)';
+                star.style.transition = 'transform 0.8s ease-out, opacity 0.7s';
+                sparkContainer.appendChild(star);
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 60 + Math.random() * 90;
+                const dx = Math.cos(angle) * distance;
+                const dy = Math.sin(angle) * distance - 25;
+                setTimeout(() => {
+                    star.style.transform = `translate(${dx}px, ${dy}px) scale(0)`;
+                    star.style.opacity = '0';
+                }, 5);
+                setTimeout(() => star.remove(), 900);
+            }
+            setTimeout(() => sparkContainer.remove(), 1100);
         }
 
         // Typing effect for Khmer text inside modal
         function typeKhmerInModal() {
-          if (typingInterval) clearInterval(typingInterval);
-          khmerModalDiv.innerHTML = "";
-          let idx = 0;
-          function addChar() {
-            if (idx < fullKhmerText.length) {
-              khmerModalDiv.innerHTML += fullKhmerText.charAt(idx);
-              idx++;
-              setTimeout(addChar, 28);
+            if (typingTimer) clearTimeout(typingTimer);
+            khmerModalDiv.innerHTML = '';
+            let idx = 0;
+            function addChar() {
+                if (idx < fullKhmerText.length) {
+                    khmerModalDiv.innerHTML += fullKhmerText.charAt(idx);
+                    idx++;
+                    setTimeout(addChar, 30);
+                }
             }
-          }
-          addChar();
+            addChar();
         }
 
-        // Open modal + show 4K letter
+        // Open modal with letter and photo animation
         function openLetterModal() {
-          letterModal.classList.add("active");
-          typeKhmerInModal();
-          // Add floating animation extra
+            letterModal.classList.add('active');
+            typeKhmerInModal();
         }
 
         // Envelope click sequence: open envelope, sparkles, then show modal
         function openEnvelopeAndShowLetter() {
-          if (isOpened) return;
-          isOpened = true;
-          envelope.classList.add("open");
-
-          // Sparkle effects for celebration
-          burstSparkles();
-          setTimeout(() => burstSparkles(), 200);
-          setTimeout(() => burstSparkles(), 450);
-
-          // After envelope flap opens, show the modal with letter
-          setTimeout(() => {
-            openLetterModal();
-          }, 550);
+            if (isOpened) return;
+            isOpened = true;
+            envelope.classList.add('open');
+            
+            // Sparkle celebration
+            burstSparkles();
+            setTimeout(() => burstSparkles(), 200);
+            
+            // After envelope flap animation, show the modal with letter
+            setTimeout(() => {
+                openLetterModal();
+            }, 500);
         }
 
-        envelope.addEventListener("click", (e) => {
-          e.stopPropagation();
-          if (!isOpened) openEnvelopeAndShowLetter();
-        });
-
-        const flap = document.querySelector(".env-flap");
-        if (flap) {
-          flap.addEventListener("click", (e) => {
+        // Event listeners
+        envelope.addEventListener('click', (e) => {
             e.stopPropagation();
             if (!isOpened) openEnvelopeAndShowLetter();
-          });
-        }
-
-        // Close modal
-        closeModalBtn.addEventListener("click", () => {
-          letterModal.classList.remove("active");
         });
-
-        // Close modal when clicking outside the card
-        letterModal.addEventListener("click", (e) => {
-          if (e.target === letterModal) {
-            letterModal.classList.remove("active");
-          }
-        });
-
-        // ---------- MUSIC SYSTEM ----------
-        let audioElement = null;
-        let isMusicPlaying = false;
-        const playPauseBtn = document.getElementById("playPauseBtn");
-        const songUpload = document.getElementById("songUpload");
-        const nowPlayingSpan = document.getElementById("nowPlayingText");
-
-        function initAudio() {
-          if (!audioElement) {
-            audioElement = new Audio();
-            audioElement.loop = true;
-            audioElement.volume = 0.3;
-          }
-        }
-
-        songUpload.addEventListener("change", (event) => {
-          const file = event.target.files[0];
-          if (file && file.type.startsWith("audio/")) {
-            initAudio();
-            const url = URL.createObjectURL(file);
-            audioElement.src = url;
-            audioElement.load();
-            nowPlayingSpan.innerText =
-              file.name.length > 25
-                ? file.name.slice(0, 22) + "..."
-                : file.name;
-            if (isMusicPlaying) {
-              audioElement.play().catch((e) => console.log("play error", e));
-            }
-            playPauseBtn.innerHTML = "⏸ Pause";
-            isMusicPlaying = true;
-          } else if (file) {
-            nowPlayingSpan.innerText = "Invalid format";
-          }
-        });
-
-        playPauseBtn.addEventListener("click", () => {
-          initAudio();
-          if (!audioElement.src) {
-            nowPlayingSpan.innerText = "Upload a song first";
-            setTimeout(() => {
-              if (nowPlayingSpan.innerText === "Upload a song first")
-                nowPlayingSpan.innerText = "No song";
-            }, 1800);
-            return;
-          }
-          if (isMusicPlaying) {
-            audioElement.pause();
-            playPauseBtn.innerHTML = "🎵 Play Music";
-            isMusicPlaying = false;
-          } else {
-            audioElement.play().catch((err) => {
-              console.warn(err);
-              nowPlayingSpan.innerText = "Error playing";
+        
+        const flap = document.querySelector('.env-flap');
+        if (flap) {
+            flap.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (!isOpened) openEnvelopeAndShowLetter();
             });
-            playPauseBtn.innerHTML = "⏸ Pause";
-            isMusicPlaying = true;
-          }
+        }
+        
+        // Close modal
+        closeModalBtn.addEventListener('click', () => {
+            letterModal.classList.remove('active');
+        });
+        
+        // Close modal when clicking outside the card
+        letterModal.addEventListener('click', (e) => {
+            if (e.target === letterModal) {
+                letterModal.classList.remove('active');
+            }
         });
 
-        // 3. FLOATING HEARTS & PETALS (cinematic)
-        const canvas = document.getElementById("floatingCanvas");
-        let ctx = canvas.getContext("2d");
+        // ---------- OPTIMIZED FLOATING HEARTS & PETALS (Lightweight) ----------
+        const canvas = document.getElementById('floatingCanvas');
+        let ctx = canvas.getContext('2d');
         let w, h;
         let particles = [];
+        let animationId = null;
+        let lastTimestamp = 0;
 
         class ParticleItem {
-          constructor(type) {
-            this.type = type;
-            this.x = Math.random() * w;
-            this.y = Math.random() * h;
-            this.size = Math.random() * 14 + 6;
-            this.speedY = Math.random() * 0.45 + 0.2;
-            this.speedX = (Math.random() - 0.5) * 0.3;
-            this.angle = Math.random() * Math.PI * 2;
-            this.rotSpeed = (Math.random() - 0.5) * 0.02;
-            this.opacity = Math.random() * 0.5 + 0.25;
-            if (type === "heart") {
-              this.color = `rgba(255, 160, 145, ${this.opacity + 0.2})`;
-            } else {
-              this.color = `rgba(255, 210, 175, ${this.opacity + 0.15})`;
+            constructor(type) {
+                this.type = type;
+                this.x = Math.random() * w;
+                this.y = Math.random() * h;
+                this.size = Math.random() * 12 + 5;
+                this.speedY = Math.random() * 0.35 + 0.15;
+                this.speedX = (Math.random() - 0.5) * 0.25;
+                this.angle = Math.random() * Math.PI * 2;
+                this.rotSpeed = (Math.random() - 0.5) * 0.015;
+                this.opacity = Math.random() * 0.45 + 0.2;
+                if (type === 'heart') {
+                    this.color = `rgba(255, 160, 145, ${this.opacity + 0.15})`;
+                } else {
+                    this.color = `rgba(255, 210, 175, ${this.opacity + 0.1})`;
+                }
             }
-          }
-          update() {
-            this.y -= this.speedY;
-            this.x += this.speedX;
-            this.angle += this.rotSpeed;
-            if (this.y < -60) this.y = h + 70;
-            if (this.x > w + 80) this.x = -80;
-            if (this.x < -80) this.x = w + 80;
-          }
-          draw(ctx) {
-            ctx.save();
-            ctx.translate(this.x, this.y);
-            ctx.rotate(this.angle);
-            ctx.globalAlpha = this.opacity;
-            if (this.type === "heart") {
-              ctx.font = `${this.size}px "Segoe UI", "Arial", "Noto Color Emoji"`;
-              ctx.fillStyle = this.color;
-              ctx.fillText("❤️", 0, 0);
-            } else {
-              ctx.beginPath();
-              ctx.ellipse(
-                0,
-                0,
-                this.size * 0.55,
-                this.size * 0.32,
-                0,
-                0,
-                Math.PI * 2,
-              );
-              ctx.fillStyle = `rgba(255, 205, 170, ${this.opacity + 0.2})`;
-              ctx.fill();
-              ctx.beginPath();
-              ctx.ellipse(
-                2,
-                -2,
-                this.size * 0.3,
-                this.size * 0.18,
-                0,
-                0,
-                Math.PI * 2,
-              );
-              ctx.fillStyle = `rgba(255, 225, 195, 0.7)`;
-              ctx.fill();
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                this.angle += this.rotSpeed;
+                if (this.y < -50) this.y = h + 60;
+                if (this.x > w + 70) this.x = -70;
+                if (this.x < -70) this.x = w + 70;
             }
-            ctx.restore();
-          }
+            draw(ctx) {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle);
+                ctx.globalAlpha = this.opacity;
+                if (this.type === 'heart') {
+                    ctx.font = `${this.size}px "Segoe UI", "Arial", "Noto Color Emoji"`;
+                    ctx.fillStyle = this.color;
+                    ctx.fillText('❤️', 0, 0);
+                } else {
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, this.size * 0.5, this.size * 0.28, 0, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 205, 170, ${this.opacity + 0.15})`;
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.ellipse(1.5, -1.5, this.size * 0.25, this.size * 0.14, 0, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255, 225, 195, 0.7)`;
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
         }
 
         function initParticles() {
-          particles = [];
-          const totalCount = 55;
-          for (let i = 0; i < totalCount; i++) {
-            const kind = Math.random() > 0.55 ? "heart" : "petal";
-            particles.push(new ParticleItem(kind));
-          }
+            particles = [];
+            const totalCount = 40; // Optimized for mobile performance
+            for (let i = 0; i < totalCount; i++) {
+                const kind = Math.random() > 0.55 ? 'heart' : 'petal';
+                particles.push(new ParticleItem(kind));
+            }
         }
 
         function resizeAndReset() {
-          w = window.innerWidth;
-          h = window.innerHeight;
-          canvas.width = w;
-          canvas.height = h;
-          initParticles();
+            w = window.innerWidth;
+            h = window.innerHeight;
+            canvas.width = w;
+            canvas.height = h;
+            initParticles();
         }
 
         function animateParticles() {
-          if (!ctx) return;
-          ctx.clearRect(0, 0, w, h);
-          for (let p of particles) {
-            p.update();
-            p.draw(ctx);
-          }
-          requestAnimationFrame(animateParticles);
+            if (!ctx) return;
+            ctx.clearRect(0, 0, w, h);
+            for (let p of particles) {
+                p.update();
+                p.draw(ctx);
+            }
+            animationId = requestAnimationFrame(animateParticles);
         }
 
-        window.addEventListener("resize", () => {
-          resizeAndReset();
+        window.addEventListener('resize', () => { 
+            resizeAndReset(); 
         });
         resizeAndReset();
         animateParticles();
 
-        // Bokeh generation
-        const bokehContainer = document.getElementById("bokehContainer");
-        for (let i = 0; i < 55; i++) {
-          const bokehDiv = document.createElement("div");
-          bokehDiv.classList.add("bokeh");
-          const sz = Math.random() * 200 + 60;
-          bokehDiv.style.width = `${sz}px`;
-          bokehDiv.style.height = `${sz}px`;
-          bokehDiv.style.left = `${Math.random() * 100}%`;
-          bokehDiv.style.top = `${Math.random() * 100}%`;
-          bokehDiv.style.animationDuration = `${Math.random() * 14 + 10}s`;
-          bokehDiv.style.animationDelay = `${Math.random() * 7}s`;
-          bokehDiv.style.opacity = Math.random() * 0.45 + 0.15;
-          bokehContainer.appendChild(bokehDiv);
+        // Clean up animation on page hide (optional)
+        window.addEventListener('beforeunload', () => {
+            if (animationId) cancelAnimationFrame(animationId);
+        });
+
+        // Bokeh generation (lightweight)
+        const bokehContainer = document.getElementById('bokehContainer');
+        const bokehCount = Math.min(35, Math.floor(window.innerWidth / 30)); // adaptive
+        for (let i = 0; i < bokehCount; i++) {
+            const bokehDiv = document.createElement('div');
+            bokehDiv.classList.add('bokeh');
+            const sz = Math.random() * 150 + 50;
+            bokehDiv.style.width = `${sz}px`;
+            bokehDiv.style.height = `${sz}px`;
+            bokehDiv.style.left = `${Math.random() * 100}%`;
+            bokehDiv.style.top = `${Math.random() * 100}%`;
+            bokehDiv.style.animationDuration = `${Math.random() * 12 + 10}s`;
+            bokehDiv.style.animationDelay = `${Math.random() * 6}s`;
+            bokehDiv.style.opacity = Math.random() * 0.4 + 0.1;
+            bokehContainer.appendChild(bokehDiv);
         }
 
         // Additional premium styling for modal
-        const stylePremium = document.createElement("style");
+        const stylePremium = document.createElement('style');
         stylePremium.textContent = `
             .letter-card-4k {
                 background: linear-gradient(115deg, #fffdf7, #fff9ef);
-                box-shadow: 0 40px 70px rgba(40,25,15,0.35), inset 0 1px 0 rgba(255,245,225,0.8);
+                box-shadow: 0 40px 65px rgba(40,25,15,0.3), inset 0 1px 0 rgba(255,245,225,0.8);
             }
             .khmer-message-4k {
-                text-shadow: 0 1px 1px rgba(255,240,210,0.4);
-                letter-spacing: 0.3px;
-            }
-            .envelope.open {
-                transition: transform 0.3s;
+                text-shadow: 0 1px 1px rgba(255,240,210,0.3);
             }
             .letter-modal.active {
-                backdrop-filter: blur(14px);
+                backdrop-filter: blur(12px);
+            }
+            .env-flap {
+                transition: transform 0.6s cubic-bezier(0.2, 0.95, 0.3, 1.1);
             }
         `;
         document.head.appendChild(stylePremium);
-      })();
-    </script>
-  </body>
+        
+        // Preload/optimize: disable animations when modal is closed to save battery
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                if (animationId) cancelAnimationFrame(animationId);
+            } else {
+                if (!animationId) animateParticles();
+            }
+        });
+    })();
+</script>
+</body>
 </html>
